@@ -47,8 +47,7 @@ function App() {
           I'M WEEKLY AVAILABLE AT
         </Typography>
         <Grid container alignItems="center" justify="center" display="flex"
-          justifyContent="center"
-          alignItems="center">
+          justifyContent="center">
           <Stack direction="row" spacing={1} justify="center">
             {items.map((item, index) => {
               return <Item>
@@ -78,8 +77,19 @@ function App() {
                 </Box>
               </Item>
             })}
+           
           </Stack>
+
+         
+         
         </Grid>
+        <Grid sx={{ m: 8 }}>
+          <div  container alignItems="center" justify="center" display="flex"
+          justifyContent="center">
+            Author Ahmad Sharif
+            </div>
+
+          </Grid>
       </Container>
     </div>
   );
