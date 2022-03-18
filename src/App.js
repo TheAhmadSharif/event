@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import { Container, Button, Typography, Box, Slider, Card, Grid, Paper, Stack, Checkbox } from '@mui/material';
+import { Container, Typography, Box, Slider, Card, Grid, Paper, Stack, Checkbox } from '@mui/material';
 import { styled } from '@mui/material/styles';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 function valuetext(value) {
@@ -46,11 +46,11 @@ function App() {
         <Typography variant="h5" component="h5" sx={{ m: 4 }}>
           I'M WEEKLY AVAILABLE AT
         </Typography>
-        <Grid container alignItems="center" justify="center" display="flex"
+        <Grid display="flex" alignItems="center" justify="center" 
           justifyContent="center">
           <Stack direction="row" spacing={1} justify="center">
             {items.map((item, index) => {
-              return <Item>
+              return <Item key={index}>
                 <Typography id="non-linear-slider" gutterBottom>
                   {item} :
                 </Typography>
@@ -84,8 +84,8 @@ function App() {
          
         </Grid>
         <Grid sx={{ m: 8 }}>
-          <div  container alignItems="center" justify="center" display="flex"
-          justifyContent="center">
+          <div display="flex" alignitems="center" justify="center" 
+          justifycontent="center">
             Author Ahmad Sharif
             </div>
 
