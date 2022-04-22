@@ -2,7 +2,12 @@ import * as React from 'react';
 import './App.css';
 import { Container, Typography, Box, Slider, Card, Grid, Paper, Stack, Checkbox } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import MuiInput from '@mui/material/Input';
+
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+const Input = styled(MuiInput)`
+  width: 42px;
+`;
 function valuetext(value) {
   return `${value}°C`;
 }
@@ -33,12 +38,12 @@ function App() {
     color: theme.palette.text.secondary,
   }));
   const [value, setValue] = React.useState([8, 12]);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+
+  const handleInputChange = (event, index) => {
+    setValue(event.target.value);
+    console.log(event, '43');
   };
-  const handleInputChange = (event) => {
-    setValue(event.target.value === '' ? '' : Number(event.target.value));
-  };
+  
   let items = ['Mon:', 'Tue:', 'Wed:', 'Thu', 'Fri', 'Sat', 'Sun'];
   return (
     <div className="App">
@@ -54,6 +59,7 @@ function App() {
                 <Typography id="non-linear-slider" gutterBottom>
                   {item} :
                 </Typography>
+                { value }
                 <Box sx={{ height: 300, width: 100 }}>
                   <Slider
                     sx={{
@@ -61,6 +67,7 @@ function App() {
                         WebkitAppearance: 'slider-vertical',
                       },
                     }}
+                    onClick={(event) => handleInputChange(event, index)}
                     getAriaLabel={() => 'Time'}
                     orientation="vertical"
                     defaultValue={[9, 12]}
@@ -68,12 +75,10 @@ function App() {
                     max={20}
                     disabled={false}
                     getAriaLabel={() => 'Day Time'}
-                    onClick={(event, newValue) =>
-                      setValue(newValue)
-                    }
                     marks={marks}
                   />
-                  <Checkbox defaultChecked onChange={handleInputChange} />
+               
+                  <Checkbox defaultChecked onClick={() => handleInputChange(index)} />
                 </Box>
               </Item>
             })}
